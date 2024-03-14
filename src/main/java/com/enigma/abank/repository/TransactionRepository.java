@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
@@ -59,7 +60,7 @@ public class TransactionRepository {
                     .idRekeningSender(senderRekeningResponse)
                     .idRekeningRecipient(recipientRekeningResponse)
                     .build();
-        });
+        }).stream().collect(Collectors.toList());
     }
 
     public TransactionResponse getById(String id) {

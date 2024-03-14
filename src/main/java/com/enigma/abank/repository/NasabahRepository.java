@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
@@ -45,7 +46,7 @@ public class NasabahRepository {
                         rs.getString("email"),
                         rs.getString("no_phone"),
                         rs.getString("address")
-                ));
+                )).stream().collect(Collectors.toList());
     }
 
     public NasabahResponse getById(String id) {
